@@ -1,0 +1,151 @@
+# Part 4: Tableau Executive Dashboard & Data Storytelling
+
+**Student:** Kriththika M V | **ID:** `bitsom_ba_2511520 `  
+**Tool Stack:** Python 3 (pandas, matplotlib) · Tableau Desktop · Markdown
+
+---
+
+## Problem Statement
+
+An Indian retail enterprise needs an executive-level sales intelligence dashboard to monitor performance across regions, product categories, customer segments, and shipping operations. The dataset covers **4,200 orders from January 2024 to December 2025** across 20 fields. The goal is to build a comprehensive Tableau dashboard with calculated fields, 7+ chart types, KPI cards, and interactive filters — and deliver actionable storytelling through structured markdown reports.
+
+---
+
+## Repository Structure
+
+```
+├── data/
+│   └── dashboard_sales_data.xlsx        ← 4,200 rows × 20 columns
+├── tableau/
+│   └── executive_dashboard.twbx 
+├── outputs/
+│   ├── dashboard_story.md               ← Executive leadership briefing
+│   ├── business_insights.md             ← 8 structured insights (Obs→Evidence→Interp→Action)
+│   └── chart_selection_justification.md ← 8 charts × 5 justification dimensions
+├── screenshots/
+│   ├── full_dashboard.png               ← Complete overview dashboard
+│   ├── sales_trend_view.png             ← Detailed trend analysis
+│   ├── regional_performance_view.png    ← Geography deep-dive
+│   ├── category_profitability_view.png  ← Category + gauge charts
+│   └── filter_interaction_view.png      ← Filters + interaction demo
+└── README.md
+```
+
+---
+
+## Dataset Description
+
+| Attribute | Value |
+|---|---|
+| Source file | `dashboard_sales_data.xlsx` |
+| Total rows | 4,200 |
+| Columns | 20 |
+| Date range | Jan 2024 – Dec 2025 |
+| Regions | North, South, East, West |
+| Categories | Furniture, Office Supplies, Technology |
+| Customer Segments | Consumer, Corporate, Home Office |
+| Ship Modes | Same Day, First Class, Second Class, Standard Class |
+| Campaign Channels | Organic, Social, Referral, Paid, Email |
+
+---
+
+## Calculated Fields (5 Required)
+
+| Field Name | Formula | Business Purpose |
+|---|---|---|
+| **Profit Margin** | `Profit / Sales` | Core profitability KPI |
+| **Cost** | `Sales - Profit` | COGS measurement |
+| **Average Order Value** | `SUM(Sales) / COUNT(Orders)` | Transaction efficiency |
+| **Return Rate** | `SUM(Return Flag) / COUNT(Orders)` | Customer satisfaction proxy |
+| **Shipping Delay Bucket** | IF/THEN categorisation on `delivery_days` | Operational tier analysis |
+
+---
+
+## Dashboard Summary (KPI Overview)
+
+| KPI | Value |
+|---|---|
+| **Total Sales** | ₹21.7 Crore (₹217M) |
+| **Total Profit** | ₹3.3 Crore (₹33.3M) |
+| **Overall Profit Margin** | 15.35% |
+| **Total Orders** | 4,200 |
+| **Avg Order Value** | ₹51,671 |
+| **Return Rate** | 4.55% |
+| **Avg Discount** | 13.73% |
+
+---
+
+## Dashboard Components
+
+### Views (7 Chart Types)
+
+| View | Chart Type | Key Question |
+|---|---|---|
+| Sales Trend | Line + Area + Dual Axis | How is revenue trending over time? |
+| Regional Performance | Grouped Bar + Stacked Bar | Which regions lead in sales and profit? |
+| Category Profitability | Bar + Gauge + Treemap | Which categories are most profitable? |
+| Customer Segment | Donut Chart | What is the segment revenue mix? |
+| Shipping Performance | Horizontal Bar | How fast are different shipping modes? |
+| Discount vs. Profit | Scatter Plot + Trend Line | Does discounting hurt profitability? |
+| Return Analysis | Grouped Bar + Map | Where and what is returned most? |
+
+### KPI Cards (5)
+Total Sales · Total Profit · Avg Order Value · Return Rate · Avg Discount
+
+### Interactive Filters (3+)
+- **Date Range** — Year/Month selector
+- **Region** — Multi-select checkbox
+- **Category** — Multi-select checkbox
+- **Customer Segment** — Optional 4th filter
+
+### Action Filters (1+)
+- **Click Region bar → Filters all sheets to selected region**
+- **Hover on Category → Highlights category across all charts**
+
+---
+
+## Key Business Insights (Summary)
+
+| # | Insight | Implication |
+|---|---|---|
+| 1 | Sales trend is positive — seasonal peaks in Q3-Q4 | Pre-stock and pre-spend before peak months |
+| 2 | North region leads; West lags in performance | Invest in West region growth strategy |
+| 3 | Technology has highest margin; Furniture under-performs | Shift product mix toward Technology |
+| 4 | Home Office segment under-served | Build dedicated HO bundles and campaigns |
+| 5 | Discounts >25% produce near-zero or negative margin | Implement discount approval governance |
+| 6 | Express shipping has nuanced return rate pattern | Investigate return reason codes by mode |
+| 7 | Return rate 4.55% — within norm but regionally uneven | Prioritise QC in high-return regions |
+| 8 | Campaign attribution gap (Unknown channel = ~0.6%) | Fix tracking, rebalance channel mix |
+
+
+---
+
+## Output Files Description
+
+| File | Contents |
+|---|---|
+| `outputs/dashboard_story.md` | Executive briefing: What's working, what's not, risks, opportunities, recommended actions, limitations, next analysis |
+| `outputs/business_insights.md` | 8 insights × 4 components each (Observation, Data Evidence, Business Interpretation, Recommended Action) covering all 8 required themes |
+| `outputs/chart_selection_justification.md` | 8 charts × 5 justification dimensions (Question, Chart Type, Fields, Design Principle, Mistake Avoided) |
+
+---
+
+## Screenshots
+
+| File | Description |
+|---|---|
+| `full_dashboard.png` | Complete executive overview — all 7 charts + 6 KPI cards |
+| `sales_trend_view.png` | Monthly trend + MA + annual comparison + channel split |
+| `regional_performance_view.png` | Stacked bar + margin + bubble + state top 10 |
+| `category_profitability_view.png` | Sub-category ranked bars + 3 margin gauge charts |
+| `filter_interaction_view.png` | Filter panel + segment matrix + heatmap + discount bucket + delay bucket |
+
+---
+
+## Limitations
+
+1. Campaign attribution gap (Unknown channel) limits channel ROI analysis
+2. 24-month window may not capture long-term cyclical patterns
+3. No competitor or market share data available for context
+4. Customer LTV not computable from this dataset alone
+
